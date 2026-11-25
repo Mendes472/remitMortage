@@ -5,6 +5,7 @@ All notable changes to `ourdao-contracts` are documented here. The format follow
 ## [Unreleased]
 
 ### Fixed
+- The contract library compiles again: concurrent merges had each numbered new error variants 92–97 and a later merge dropped `WhitelistFull`, `TransferAmountMismatch`, `JoinedAfterProposal`, `TooManyAdmins`, `TooManyVotesInBatch` and `ArithmeticOverflow` (and `types::ONE`) while their call sites remained. They are restored as append-only codes 95–100, so no existing code is renumbered; `default_loan` propagates `get_loan_asset`'s `Result` (#441, #442).
 - `register_member` now rejects a returning member who defaulted on a loan (or still has one outstanding) with the new `Error::DefaultedLoanOutstanding` (94), so exiting and rejoining can no longer reset a defaulter's standing (#168).
 - `contracts/dao/src/admin.rs` compiles again: `remove_token` regains its closing brace and token-removal event payload, the token-whitelist events use the shared `events` constants, and the unused, malformed duplicate `try_execute_policy_update` is removed (the public entrypoint is `execute_policy_update`) (#433).
 - `expire_treasury_proposal` now waits for a private proposal's full commit + reveal window (`created_at + voting_period * 2`), the same boundary `tally` enforces, so committed votes can no longer be locked out of revealing (#434).

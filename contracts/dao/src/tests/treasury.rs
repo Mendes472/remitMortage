@@ -596,7 +596,6 @@ fn treasury_execution_uses_proposal_asset_after_whitelist_removal() {
     assert_eq!(s.token.balance(&dest), base_before);
 }
 
-
 // Issue #281: all treasury assets can be fetched in one view.
 #[test]
 fn get_treasury_balances_returns_base_and_whitelisted_assets() {

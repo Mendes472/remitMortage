@@ -351,6 +351,12 @@ Numeric codes are stable and part of the ABI — new variants get appended rathe
 | 92 | `TokenHasBalance` |
 | 93 | `TokenHasActiveLoans` |
 | 94 | `DefaultedLoanOutstanding` |
+| 95 | `WhitelistFull` |
+| 96 | `TransferAmountMismatch` |
+| 97 | `JoinedAfterProposal` |
+| 98 | `TooManyAdmins` |
+| 99 | `TooManyVotesInBatch` |
+| 100 | `ArithmeticOverflow` |
 
 ## Build & test
 
